@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\xampp\htdocs\teste\php\config.php';
+require_once __DIR__ . '/../php/config.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -20,9 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (password_verify($senha, $adm['senha'])) {
                 $_SESSION['usuario_id'] = $adm['c_adm'];
                 $_SESSION['usuario_nome'] = $adm['nome'];
-                $_SESSION['perfil'] = 'adm'; 
-                header("Location: C:\xampp\htdocs\teste\page admin\painel_adm.php"); 
-                exit();
+                $_SESSION['perfil'] = 'adm';
+                header("Location: ../page%20admin/painel_adm.php");
+                exit;
+
             }
         }
 

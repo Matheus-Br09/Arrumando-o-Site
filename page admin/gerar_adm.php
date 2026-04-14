@@ -3,7 +3,7 @@ require_once 'C:\xampp\htdocs\teste\php\config.php';
 
 $nome = "Matheus";
 $email = "admin@email.com";
-$senha_limpa = "123456"; 
+$senha_limpa = "123456";
 $senha_hash = password_hash($senha_limpa, PASSWORD_DEFAULT);
 
 $sql = $conexao->prepare("INSERT INTO adm (nome, email, senha) VALUES (?, ?, ?)");

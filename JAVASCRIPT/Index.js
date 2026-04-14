@@ -75,11 +75,11 @@ function buscar(){
             resultados.appendChild(h3.closest(".card").cloneNode(true))
             encontrado = true;
         }
-    })   
+    })
     
     if (!encontrado) {
         resultados.textContent = "Nenhum produto/alimentado com esse nome foi encontrado!"
-    }   
+    }
 };
 
 document.getElementById('link').addEventListener('click', function(event){

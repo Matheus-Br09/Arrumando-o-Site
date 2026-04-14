@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'C:\xampp\htdocs\teste\php\config.php';
+require_once __DIR__ . '/../php/config.php';
 
 // 1. TRAVA DE SEGURANÇA: Só entra se for ADM
 if (!isset($_SESSION['perfil']) || $_SESSION['perfil'] !== 'adm') {
@@ -11,9 +11,9 @@ if (!isset($_SESSION['perfil']) || $_SESSION['perfil'] !== 'adm') {
 
 
 // 2. BUSCA DE PRODUTOS (Relacionando com a tabela de categorias)
-$sql = "SELECT p.*, c.nome_categoria 
-        FROM produto p 
-        INNER JOIN categorias c ON p.c_categoria = c.c_categoria 
+$sql = "SELECT p.*, c.nome_categoria
+        FROM produto p
+        INNER JOIN categorias c ON p.c_categoria = c.c_categoria
         ORDER BY c.nome_categoria, p.nome_produto";
 
 $resultado = $conexao->query($sql);

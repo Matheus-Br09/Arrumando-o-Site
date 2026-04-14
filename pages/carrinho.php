@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'C:\xampp\htdocs\teste\php\config.php'; 
+require_once 'C:\xampp\htdocs\teste\php\config.php';
 
 // Lógica para remover item ou alterar quantidade
 if (isset($_GET['remover'])) {

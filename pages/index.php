@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'C:\xampp\htdocs\teste\php\config.php'; 
+require_once __DIR__ . '/../php/config.php';
 
 // 3. Busca as categorias
 $sql_categorias = "SELECT * FROM categorias";
@@ -18,7 +18,7 @@ $res_categorias = $conexao->query($sql_categorias);
 
 <header class="header-topo">
     <button id="toggleMenu" class="btn-menu">☰</button>
-       
+
     
 
     <div id="divPesquisa">
@@ -94,7 +94,7 @@ $res_categorias = $conexao->query($sql_categorias);
                                 </a>
                             <?php endif; ?>
                         </div>
-                    <?php endwhile; 
+                    <?php endwhile;
                 else:
                     echo "<p style='color: gray;'>Nenhum produto nesta categoria.</p>";
                 endif; ?>
@@ -105,7 +105,7 @@ $res_categorias = $conexao->query($sql_categorias);
 
 <?php if (isset($_SESSION['usuario_id']) && $_SESSION['perfil'] === 'cliente'): ?>
     <div class="carrinho-fixo" onclick="window.location='carrinho.php'" style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer;">
-        🛒 
+        🛒
         <?php
         $total_carrinho = 0;
         if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
@@ -123,7 +123,7 @@ $res_categorias = $conexao->query($sql_categorias);
 
 <footer style="text-align: center; color: white; padding: 40px 0;">
     <p>Mi Patisserie © 2026</p>
-</footer>   
+</footer>
 
 <script src="../JAVASCRIPT/Index.js"></script>
 </body>

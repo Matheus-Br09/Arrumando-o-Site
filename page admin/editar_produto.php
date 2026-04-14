@@ -16,6 +16,7 @@ if($res->num_rows == 0){
      header("Location: painel_adm.php?msg=produto_nao_encontrado");
      exit();
 }
+
 $prod = $res->fetch_assoc();
 
 
@@ -47,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             // (OPCIONAL) Deletar a imagem antiga para não encher o servidor
             if(!empty($prod['imagem']) && file_exists("img/".$prod['imagem'])){
-                unlink("img/".$prod['imagem']); 
+                unlink("img/".$prod['imagem']);
             }
         } else {
             echo "<script>alert('Erro ao mover o arquivo de imagem.');</script>";
@@ -56,11 +57,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // ------------------------------------
 
     // 4. Executa o UPDATE no banco
-    $sql = "UPDATE produto SET 
-            nome_produto = '$nome', 
-            preco = '$preco', 
+    $sql = "UPDATE produto SET
+            nome_produto = '$nome',
+            preco = '$preco',
             estoque = '$estoque',
-            imagem = '$nome_imagem_atual' 
+            imagem = '$nome_imagem_atual'
             WHERE c_produto = $id";
     
     if ($conexao->query($sql)) {
@@ -100,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label>Estoque (un):</label>
         <input type="number" name="estoque" value="<?php echo $prod['estoque']; ?>" required>
 
-       
+
         <label>Imagem do Produto (clique para trocar):</label>
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
              <?php if(!empty($prod['imagem']) && file_exists("img/".$prod['imagem'])): ?>

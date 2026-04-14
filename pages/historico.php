@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'C:\xampp\htdocs\teste\php\config.php'; 
+require_once 'C:\xampp\htdocs\teste\php\config.php';
 
 // SEGURANÇA: Garante que só clientes logados vejam seu próprio histórico
 if (!isset($_SESSION['usuario_id']) || $_SESSION['perfil'] !== 'cliente') {
@@ -11,10 +11,10 @@ if (!isset($_SESSION['usuario_id']) || $_SESSION['perfil'] !== 'cliente') {
 $id_cliente = $_SESSION['usuario_id'];
 
 // BUSCA: Pedidos do cliente com o nome do status (ex: Entregue, Cancelado)
-$sql = "SELECT p.*, s.nome_status 
-        FROM pedido p 
-        INNER JOIN status_pedido s ON p.c_status = s.c_status 
-        WHERE p.c_cliente = $id_cliente 
+$sql = "SELECT p.*, s.nome_status
+        FROM pedido p
+        INNER JOIN status_pedido s ON p.c_status = s.c_status
+        WHERE p.c_cliente = $id_cliente
         ORDER BY p.data_pedido DESC";
 
 $resultado = $conexao->query($sql);
