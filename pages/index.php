@@ -89,7 +89,7 @@ $res_categorias = $conexao->query($sql_categorias);
                             <p style="color: gold; font-weight: bold;">R$ <?php echo number_format($prod['preco'], 2, ',', '.'); ?></p>
                             
                             <?php if (isset($_SESSION['usuario_id'])): ?>
-                                <a href="adicionar_carrinho.php?id=<?php echo $prod['c_produto']; ?>" class="btn-add" style="background: gold; padding: 5px 10px; text-decoration: none; color: black; border-radius: 5px; display: inline-block;">
+                                <a href="adicionar_carrinho.php?add=<?php echo $prod['c_produto']; ?>" class="btn-add" style="background: gold; padding: 5px 10px; text-decoration: none; color: black; border-radius: 5px; display: inline-block;">
                                     Adicionar
                                 </a>
                             <?php endif; ?>

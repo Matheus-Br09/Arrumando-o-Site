@@ -63,7 +63,7 @@ $resultado = $conexao->query($sql);
                     <td>R$ <?php echo number_format($prod['preco'], 2, ',', '.'); ?></td>
                     <td><?php echo $prod['estoque']; ?> un</td>
                     <td>
-                        <a href="editar_produto.php<?= $prod['c_produto'];?>" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="editar_produto.php?id=<?= $prod['c_produto'];?>" class="btn btn-warning btn-sm">Editar</a>
                         <button onclick="excluirProduto(<?= $prod['c_produto'];?>)" class="btn btn-danger btn-sm">Excluir</button>
                     </td>
                 </tr>
