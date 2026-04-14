@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'C:\xampp\htdocs\teste\php\config.php';
+require_once __DIR__ . '/../php/config.php';
 
 // SEGURANÇA: Garante que só clientes logados vejam seu próprio histórico
 if (!isset($_SESSION['usuario_id']) || $_SESSION['perfil'] !== 'cliente') {

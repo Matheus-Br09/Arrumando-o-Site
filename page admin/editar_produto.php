@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php';
+include __DIR__ . '/../php/config.php';
 
 // 1. Verifica se o ID foi enviado
 if (!isset($_GET['id']) || empty($_GET['id'])) {

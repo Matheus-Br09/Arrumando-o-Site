@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\xampp\htdocs\teste\php\config.php';
+require_once __DIR__ . '/../php/config.php';
 
 $nome = "Matheus";
 $email = "admin@email.com";

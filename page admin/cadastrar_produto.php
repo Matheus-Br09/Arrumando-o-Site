@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once __DIR__ . '/../php/config.php';
 
 // SEGURANÇA: Só ADM acessa
 if (!isset($_SESSION['perfil']) || $_SESSION['perfil'] !== 'adm') {
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Tratamento da Imagem
     $arquivo = $_FILES['imagem'];
     $nome_imagem = time() . "_" . $arquivo['name']; // Nome único para não sobrescrever
-    $destino = "img/" . $nome_imagem;
+    $destino = "../img/" . $nome_imagem;
 
     if (move_uploaded_file($arquivo['tmp_name'], $destino)) {
         // Salva no Banco de Dados

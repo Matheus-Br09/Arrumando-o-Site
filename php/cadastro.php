@@ -2,7 +2,7 @@
 
 //Incluindo o arquivo de configuração para estabelecer a conexão com o banco de dados
 
-require_once 'C:\xampp\htdocs\teste\php\config.php';
+require_once __DIR__ . '/../php/config.php';
 
 // Verificando se recebemos os dados do formulário e se é post o metodo
 

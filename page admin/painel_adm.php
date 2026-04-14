@@ -31,7 +31,7 @@ $resultado = $conexao->query($sql);
     <nav class="navbar navbar-dark bg-dark mb-4">
         <div class="container">
             <span class="navbar-brand">Painel ADM - Mi Patisserie</span>
-            <a href="logout.php" class="btn btn-outline-light btn-sm">Sair</a>
+            <a href="../php/logout.php" id="link" class="btn btn-outline-light btn-sm">Sair</a>
         </div>
     </nav>
 
@@ -56,21 +56,21 @@ $resultado = $conexao->query($sql);
                 <?php while($prod = $resultado->fetch_assoc()): ?>
                 <tr>
                     <td>
-                        <img src="img/<?php echo $prod['imagem']; ?>" alt="foto" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                        <img src="../img/<?php echo $prod['imagem']; ?>" alt="foto" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
                     </td>
                     <td><strong><?php echo $prod['nome_produto']; ?></strong></td>
                     <td><?php echo $prod['nome_categoria']; ?></td>
                     <td>R$ <?php echo number_format($prod['preco'], 2, ',', '.'); ?></td>
                     <td><?php echo $prod['estoque']; ?> un</td>
                     <td>
-                        <a href="editar_produto.php?id=<?php echo $prod['c_produto']; ?>" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="excluir_produto.php?id=<?php echo $prod['c_produto']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza?')">Excluir</a>
+                        <a href="editar_produto.php<?= $prod['c_produto'];?>" class="btn btn-warning btn-sm">Editar</a>
+                        <button onclick="excluirProduto(<?= $prod['c_produto'];?>)" class="btn btn-danger btn-sm">Excluir</button>
                     </td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>
     </div>
-
+    <script src="../JAVASCRIPT/Index.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once __DIR__ . '/../php/config.php';
 
 // 1. Bloqueia acesso de quem não está logado
 if (!isset($_SESSION['usuario_id'])) {

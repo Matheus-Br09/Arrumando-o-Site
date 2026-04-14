@@ -1,8 +1,8 @@
 let carrinho = [];
 let total = 0;
 
-function adicionarItem(nome, preco){
-    carrinho.push({nome, preco});
+function adicionarItem(nome, preco) {
+    carrinho.push({ nome, preco });
     total += preco;
     atualizarCarrinho();
 }
@@ -54,14 +54,14 @@ function adicionarItem(nome, preco){
 
 // Buscar
 
-function buscar(){
+function buscar() {
     let texto = document.getElementById("pesquisa").value.toLowerCase();
     let cards = document.querySelectorAll(".card");
     let resultados = document.getElementById("resultados");
 
     resultados.innerHTML = "";
 
-    if (texto === ""){
+    if (texto === "") {
         resultados.textContent = "Digite algo válido"
         return;
     }
@@ -71,40 +71,53 @@ function buscar(){
     const titulos = document.querySelectorAll(".secao h3")
 
     titulos.forEach(h3 => {
-        if (h3.textContent.toLowerCase().startsWith(texto)){
+        if (h3.textContent.toLowerCase().startsWith(texto)) {
             resultados.appendChild(h3.closest(".card").cloneNode(true))
             encontrado = true;
         }
     })
-    
+
     if (!encontrado) {
         resultados.textContent = "Nenhum produto/alimentado com esse nome foi encontrado!"
     }
 };
 
-document.getElementById('link').addEventListener('click', function(event){
+document.getElementById('link').addEventListener('click', function (event) {
     event.preventDefault();
     chamarPHP();
 })
 
-function chamarPHP(){
+function chamarPHP() {
     fetch('../php/logout.php')
     window.location.reload()
-    
+
 }
 
+function excluirProduto(id) {
+    if (!confirm("Tem certeza? ")) return;
 
+    fetch('../php/excluir_produto.php?id=' + id)
+        .then(response => response.text())
+        .then(data => {
+            alert('Produto excluído com sucesso!!')
+            location.reload();
+        })
+        .catch(error => {
+            console.error("Erro: ", error)
+            alert('Erro ao excluir produto!!')
+        })
+}
 
 
 let index = 0;
 
-function avancar(){
+function avancar() {
     let carrossel = document.getElementById("carrossel");
     index = (index + 1) % 3;
     carrossel.style.transform = "translateX(-" + (index * 315) + "px)";
 }
 
-function voltar(){
+function voltar() {
     let carrossel = document.getElementById("carrossel");
     index = (index - 1 + 3) % 3;
     carrossel.style.transform = "translateX(-" + (index * 315) + "px)";
@@ -114,11 +127,11 @@ const botaoTopo = document.getElementById("toggleMenu");
 const sidebar = document.querySelector(".header-lateral");
 const body = document.body;
 
-function toggleMenu(){
+function toggleMenu() {
     sidebar.classList.toggle("recolhido");
     body.classList.toggle("recolhido");
 }
 
-if(botaoTopo){
+if (botaoTopo) {
     botaoTopo.addEventListener("click", toggleMenu);
 }

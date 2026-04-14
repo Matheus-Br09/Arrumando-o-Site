@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once __DIR__ . '/../php/config.php';
 
 // 1. Buscamos o primeiro produto que existir no seu banco para o teste
 $res = $conexao->query("SELECT c_produto, nome_produto FROM produto LIMIT 1");

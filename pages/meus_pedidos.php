@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'C:\xampp\htdocs\teste\php\config.php'; 
+require_once __DIR__.'/../php/config.php'; 
 
 // SEGURANÇA: Só entra se for CLIENTE
 if (!isset($_SESSION['perfil']) || $_SESSION['perfil'] !== 'cliente') {
