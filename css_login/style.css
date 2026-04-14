@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding-right: 80px;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom,#7c6037,#34150f,#050100);
+    background-size: cover;
+}
+.wrapper-login {
+    width: 500px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: white;
+    border-radius: 10px;
+    padding: 30px 40px;
+    position: absolute;
+    right: 80px;
+    top: 20%;
+    transform: rotateY(-50%);
+}
+
+.wrapper-login h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper-login .input-box {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box {
+    position: relative;
+}
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper-login .remenber-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remenber-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remenber-forgot a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.remenber-forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper-login .bnt {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+
+.wrapper-login .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+
+}
+main{
+    position: relative;
+    width: 100%;
+}
+
+.logo{
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    transition: 0.7s;
+}
+
+main.active .logo{
+    left: 55%;
+}
+
+.wrapper-cadastro{
+    position: absolute;
+    left: 5%;
+    top: 25%;
+    width: 500px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.7s;
+}
+
+.wrapper-cadastro h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper-cadastro .input-box {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.wrapper-cadastro .bnt {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+
+.wrapper-cadastro .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+.wrapper-login{
+    transition: 0.7s;
+}
+
+main.active .wrapper-login{
+    opacity: 0;
+    pointer-events: none;
+}
+
+main.active .wrapper-cadastro{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wrapper-cadastro{
+    width: 500px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color: white;
+    border-radius: 10px;
+    padding: 30px 40px;
+
+    position: absolute;
+    left: 5%;
+    top: 20%;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.7s;
+}
+
+main{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}

@@ -1,0 +1,303 @@
+body{
+margin-left:150px;
+font-family:"Times New Roman", serif;
+color:#dad5d5;
+background:#571209;
+
+    background-image: url(/Imagens-Referencias/café-inferior1.0.png);
+    background-color: #571209;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: left top, right top;
+}
+
+
+#inicio{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: x-large;
+}
+
+.header-lateral{
+    position:fixed;
+    top:0;
+    left:0;
+    width:200px;
+    height:100vh;
+    background:#340c07;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:20px;
+
+}
+
+.header-topo{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    background:#340c07;
+      z-index: 999;
+
+      display: flex;
+    align-items: center;
+    justify-content: center; /* centraliza a pesquisa */
+
+
+}
+
+.perfil {
+    width: 60px;
+    height: auto;
+    position: absolute;
+    right: 20px;       
+    top: 11px;         
+}
+
+#divPesquisa{
+    text-align: center;
+    margin: auto;
+    margin-right: 330px;
+}
+
+#divPesquisa input{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+
+    background-color: transparent;
+    color: white;
+
+    padding: 7px;
+    width: 290px;
+
+    border: 1px solid white;
+    border-radius: 10px 0px 0px 10px;
+
+    box-shadow: 2px 2px 5px rgb(255, 255, 255);
+
+    transition: 0.2s;
+}
+
+#divPesquisa input:focus{
+    outline: none;
+    border-color: #f5d365;
+    box-shadow: 2px 2px 5px rgb(245, 211, 101);
+
+    transition: 0.2s;
+}
+
+#divPesquisa button{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+
+    background-color: #dad5d575;
+    color: white;
+
+    padding: 7px 20px;
+
+    border: 1px solid white;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+
+    box-shadow: 2px 2px 5px rgb(255, 255, 255);
+    
+    transition: 0.2s;
+    
+}
+
+#divPesquisa button:hover{
+    background-color: rgba(255, 255, 255, 0.562);
+    color: #340c07;
+
+    transition: 0.2s;
+}
+
+#divPesquisa #resultados{
+    bottom: 20%;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    margin-top:80%;
+}
+
+.logo{
+    width:90px;
+    transition: 0.3s;
+    margin-left: 80px;
+}
+.header-lateral.recolhido .logo-lateral{
+    position: fixed;
+    top: 10px;
+    left: 80px;
+    width: 90px;
+    z-index: 1000;
+}
+
+nav a{
+    color:#f5d365;
+    text-decoration:none;
+}
+
+.secao{
+    padding:100px 20px;
+    text-align:center;
+    max-width:1000px;
+    margin:auto;
+
+}
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#7c6037;
+    padding:20px;
+    border-radius:10px;
+    width:200px;
+}
+
+.card button{
+    margin-top:10px;
+    background-color: #dad5d575;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding:12px;
+    cursor:pointer;
+
+    transition: 0.2s;
+}
+
+.card button:hover{
+    background-color: #dad5d5;
+    color: rgb(94, 94, 94);
+}
+
+
+button{
+    padding:2px;
+}
+
+
+
+.painel-carrinho{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+
+    border:1px solid #680000;
+    padding:12px 20px;
+    border-radius:20px;
+    background:rgba(255, 255, 255, 0.582);
+    color: rgb(0, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.historico{
+    margin-top:50px;
+    background:rgba(0,0,0,0.6);
+    padding:20px;
+    border-radius:10px;
+}
+
+#Novidades #itens{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+}
+section .carrossel{
+    display:flex;
+    overflow: hidden;
+    width: 330px;
+}
+
+.carrossel-container{
+    display:flex;
+    margin: 20px;
+    width:300px;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);
+}
+
+.carrossel-container .card{
+    object-fit: cover;
+    min-width:260px;
+    margin: 0px 20px 0px -5px;
+}
+
+#itens button{
+    background: transparent;
+    border: 2px solid #e7b6147e;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #e7b614;
+
+    margin-top: 130%;
+}
+
+#itens button:hover{
+    background: #e7b614d7;
+    color: #5f140a;
+}
+
+.btn-menu{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: transparent;
+    border: 1px solid #f5d365;
+    color: #f5d365;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.header-lateral{
+    transition: 0.3s;
+}
+
+
+.header-lateral.recolhido{
+    width: 60px;
+}
+
+
+.header-lateral.recolhido nav a{
+    font-size: 0;
+}
+
+
+body{
+    transition: 0.3s;
+}
+
+
+body.recolhido{
+    margin-left: 60px;
+}
+
+
+body{
+    margin-left: 200px;
+}
+
+
+footer{
+    margin-bottom: -20px;
+    text-align:center;
+    padding: 0px;
+
+}

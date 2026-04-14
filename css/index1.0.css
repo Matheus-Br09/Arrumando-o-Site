@@ -1,0 +1,93 @@
+body{
+font-family: Times New Roman, Times, serif;
+color: #ffffff;
+margin:0;
+background:#471002;
+}
+
+
+
+header{
+position: sticky;
+top: 0%;
+background-color:#34150f;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:3px solid gold; 
+position:relative;
+}
+
+
+
+.logo img{
+width:120px;
+}
+
+
+
+.menu a{
+position:absolute;
+margin-left:px;
+text-decoration:none;
+color:#d4af37;
+padding:8px 15px;
+font-size:18px;
+}
+
+
+
+.perfil img{
+width:60px;
+position:top
+}
+
+
+
+.titulo{
+text-align:center;
+margin:30px;
+}
+
+.titulo h2{
+border:2px solid #ccc;
+display:inline-block;
+padding:10px 80px;
+}
+
+
+
+.produtos{
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+justify-content:center;
+}
+
+
+
+.card{
+text-align:center;
+}
+
+.imagem{
+width:180px;
+height:150px;
+background:#eee;
+border:1px solid #ccc;
+margin-bottom:10px;
+}
+
+
+
+.carrinho{
+position:fixed;
+bottom:30px;
+right:30px;
+
+border:1px solid #ccc;
+padding:12px 20px;
+border-radius:20px;
+background:rgba(255, 255, 255, 0.274);
+color: black;
+}
