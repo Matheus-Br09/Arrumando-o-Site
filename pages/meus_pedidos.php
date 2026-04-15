@@ -72,14 +72,18 @@ $resultado = $conexao->query($sql);
             font-size: 11px;
             text-transform: uppercase;
         }
+
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <header class="header-pedidos">
-        <a href="index.php"><div style="color: gold; font-size: 24px; font-weight: bold;">
+        <a href="../index.php"><div style="color: gold; font-size: 24px; font-weight: bold;">
             Mi Patisserie</div></a>
         <nav>
-            <a href="index.php" style="color: white; text-decoration: none; margin-right: 20px; font-weight: bold;">CARDÁPIO</a>
+            <a href="../index.php" style="color: white; text-decoration: none; margin-right: 20px; font-weight: bold;">CARDÁPIO</a>
         </nav>
     </header>
 

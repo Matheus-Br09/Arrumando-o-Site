@@ -20,12 +20,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     if ($conexao->query($sql)) {
         // Redireciona e PARA o script imediatamente
-        header("Location: painel_adm.php?msg=excluido");
+        header("Location: ./page%20admin/painel_adm.php?msg=excluido");
         exit(); 
     } else {
         echo "Erro ao excluir: " . $conexao->error;
     }
 } else {
-    header("Location: painel_adm.php");
+    header("Location: ./page%20admin/painel_adm.php");
     exit();
 }

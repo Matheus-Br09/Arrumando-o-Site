@@ -18,11 +18,19 @@ background:#571209;
     font-size: x-large;
 }
 
+
+
+.conteudo-principal{
+    align-items: center;
+    margin-left: 50%;
+    margin-top: 10%;
+}
+
 .header-lateral{
     position:fixed;
     top:0;
     left:0;
-    width:200px;
+    width:180px;
     height:100vh;
     background:#340c07;
     display:flex;
@@ -30,6 +38,16 @@ background:#571209;
     align-items:center;
     padding-top:20px;
 
+}
+
+.header-lateral #instagram {
+   
+    width: 60px;
+    height: auto;
+    position: relative;
+    left: 1px;       
+    bottom: 50px;  
+    margin-top: 980%;      
 }
 
 .header-topo{
@@ -163,6 +181,7 @@ nav a{
     padding:20px;
     border-radius:10px;
     width:200px;
+
 }
 
 .card button{
@@ -266,12 +285,15 @@ section .carrossel{
 
 
 .header-lateral{
+    text-align: center;
+    justify-content: center center;
     transition: 0.3s;
 }
 
 
 .header-lateral.recolhido{
     width: 60px;
+    padding-top: 10%;
 }
 
 

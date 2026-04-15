@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../php/config.php';
+require_once __DIR__ . '/php/config.php';
 
 // 3. Busca as categorias
 $sql_categorias = "SELECT * FROM categorias";
@@ -12,32 +12,33 @@ $res_categorias = $conexao->query($sql_categorias);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Patisserie</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 
 <header class="header-topo">
     <button id="toggleMenu" class="btn-menu">☰</button>
-
-    
-
+    <a href="#inicio" id="imagem">
+        <img src="./Imagens-Referencias/logo-melhorada.png" class="logo">
+    </a>
+    <?php if (isset($_SESSION['usuario_id']) && $_SESSION['perfil'] === 'cliente'): ?>
+            <span style="color: gold;
+                         MARGIN-RIGHT: 15PX;
+                        ">
+                Olá, <?php echo explode(' ', $_SESSION['usuario_nome'])[0]; ?>!
+            </span>
     <div id="divPesquisa">
         <input type="text" id="pesquisa" placeholder="Pesquisar...">
         <button onclick="buscar()">Buscar</button>
     </div>
-    <a href="#inicio">
-        <img src="../Imagens-Referencias/logo-melhorada.png" class="logo">
-    </a>
+    
     <div class="user-area">
-        <?php if (isset($_SESSION['usuario_id']) && $_SESSION['perfil'] === 'cliente'): ?>
-            <span style="color: gold; margin-right: 15px;">
-                Olá, <?php echo explode(' ', $_SESSION['usuario_nome'])[0]; ?>!
-            </span>
+        
             
-            <a href="meus_pedidos.php" style="color: white; text-decoration: none; margin-right: 15px;">MEUS PEDIDOS</a>
+            <a href="./pages/meus_pedidos.php" style="color: white; text-decoration: none; margin-right: 15px;">MEUS PEDIDOS</a>
             <button id="link" style="color: #ff4d4d; text-decoration: none; font-weight: bold;">SAIR</button>
         <?php else: ?>
-            <a href="login.php" style="color: white; text-decoration: none; margin-right: 15px;">LOGIN</a>
+            <a href="./pages/login.php" style="color: white; text-decoration: none; margin-right: 15px;">LOGIN</a>
         <?php endif; ?>
     </div>
     
@@ -46,6 +47,7 @@ $res_categorias = $conexao->query($sql_categorias);
 <section class="secao-container">
     <aside class="header-lateral">
         <nav class="menu">
+            
             <?php 
             // PRIMEIRO LOOP: Menu Lateral
             if($res_categorias->num_rows > 0):
@@ -55,15 +57,21 @@ $res_categorias = $conexao->query($sql_categorias);
                     </a>
                 <?php endwhile; 
             endif; ?>
-            <nav class="menu">
-            <a href="historico.php">Pedidos Anteriores</a>
-            </nav>
+           
         </nav>
+
+        <nav>
+            <a href="https://www.instagram.com/mipatisserie_/" target="_blank">
+            <img id="instagram" class="instagram" 
+            src="./Imagens-Referencias/instagram-icone.png">
+            </a>
+        </nav>
+        
     </aside>
 
     <main class="conteudo-principal">
+        <h1 id="boas-vindas">Bem Vindos a Mi-Patisserie</h1>
         <?php 
-        // --- O PULO DO GATO ---
         // Reseta o ponteiro para o início para poder usar o loop de categorias novamente
         mysqli_data_seek($res_categorias, 0); 
 
@@ -83,13 +91,15 @@ $res_categorias = $conexao->query($sql_categorias);
                     while($prod = $res_produtos->fetch_assoc()): ?>
                         <div class="card" style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; width: 200px;">
                             <div class="imagem" style="height: 150px; background: #eee;">
-                                <img src="img/<?php echo $prod['imagem']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="./img/<?php echo $prod['imagem']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <p style="color: white; margin-top: 10px;"><?php echo $prod['nome_produto']; ?></p>
                             <p style="color: gold; font-weight: bold;">R$ <?php echo number_format($prod['preco'], 2, ',', '.'); ?></p>
                             
                             <?php if (isset($_SESSION['usuario_id'])): ?>
-                                <a href="adicionar_carrinho.php?add=<?php echo $prod['c_produto']; ?>" class="btn-add" style="background: gold; padding: 5px 10px; text-decoration: none; color: black; border-radius: 5px; display: inline-block;">
+                                <a href="./php/adicionar_carrinho.php?id=<?php echo $prod['c_produto']; ?>" 
+                                class="btn-add" 
+                                style="background: gold; padding: 5px 10px; text-decoration: none; color: black; border-radius: 5px; display: inline-block;">
                                     Adicionar
                                 </a>
                             <?php endif; ?>
@@ -104,7 +114,7 @@ $res_categorias = $conexao->query($sql_categorias);
 </section>
 
 <?php if (isset($_SESSION['usuario_id']) && $_SESSION['perfil'] === 'cliente'): ?>
-    <div class="carrinho-fixo" onclick="window.location='carrinho.php'" style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer;">
+    <div class="carrinho-fixo" onclick="window.location='./pages/carrinho.php'" style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer;">
         🛒
         <?php
         $total_carrinho = 0;
@@ -125,6 +135,6 @@ $res_categorias = $conexao->query($sql_categorias);
     <p>Mi Patisserie © 2026</p>
 </footer>
 
-<script src="../JAVASCRIPT/Index.js"></script>
+<script src="./JAVASCRIPT/Index.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['usuario_id'] = $cliente['c_cliente'];
                 $_SESSION['usuario_nome'] = $cliente['nome'];
                 $_SESSION['perfil'] = 'cliente'; 
-                header("Location: index.php"); 
+                header("Location: ../index.php"); 
                 exit();
             }
         }
@@ -63,29 +63,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <main id="container">
         <div class="wrapper-login">
-            <form action="login.php" method="POST">
-            <h1>Login</h1>
-            
-            <?php if(isset($erro)): ?>
-                <p style="color: #ff4d4d; text-align: center; font-size: 14px;"><?php echo $erro; ?></p>
-            <?php endif; ?>
+            <form action="./login.php" method="POST">
+                <h1>Login</h1>
+                
+                <?php if(isset($erro)): ?>
+                    <p style="color: #ff4d4d; text-align: center; font-size: 14px;"><?php echo $erro; ?></p>
+                <?php endif; ?>
 
-            <div class="input-box">
-                <input type="text" name="email" placeholder="E-mail" required>
-                <i class='bx bx-user' ></i>
-            </div>
+                <div class="input-box">
+                    <input type="text" name="email" placeholder="E-mail" required>
+                    <i class='bx bx-user' ></i>
+                </div>
 
-            <div class="input-box">
-                <input type="password" name="senha" placeholder="Senha" required>
-                <i class='bx bx-lock-alt' ></i>
-            </div>
+                <div class="input-box">
+                    <input type="password" name="senha" placeholder="Senha" required>
+                    <i class='bx bx-lock-alt' ></i>
+                </div>
 
-            <div class="remenber-forgot">
-                <label><input type="checkbox"> Me lembre </label>
-                <a href="#">Esqueceu a senha?</a>
-            </div>
+                <div class="remenber-forgot">
+                    <label><input type="checkbox"> Lembre de mim </label>
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
 
-            <button type="submit" class="bnt"> Login </button>
+                <button type="submit" class="bnt"> Login </button>
             </form>
             <div class="register-link">
                 <p>Não tem uma conta?

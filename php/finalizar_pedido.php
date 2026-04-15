@@ -4,7 +4,7 @@ require_once __DIR__ . '/../php/config.php';
 
 // 1. Bloqueia acesso de quem não está logado
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: login.php");
+    header("Location: ./pages/login.php");
     exit();
 }
 
@@ -12,7 +12,7 @@ $id_cliente = $_SESSION['usuario_id'];
 $carrinho = $_SESSION['carrinho'] ?? [];
 
 if (empty($carrinho)) {
-    echo "<script>alert('Seu carrinho está vazio!'); window.location='index.php';</script>";
+    echo "<script>alert('Seu carrinho está vazio!'); window.location='../index.php';</script>";
     exit();
 }
 
@@ -46,7 +46,7 @@ if ($sql_pedido->execute()) {
 
     // 5. Sucesso! Limpa o carrinho e avisa o cliente
     unset($_SESSION['carrinho']);
-    echo "<script>alert('Pedido #$n_pedido realizado com sucesso!'); window.location='meus_pedidos.php';</script>";
+    echo "<script>alert('Pedido #$n_pedido realizado com sucesso!'); window.location='../pages/meus_pedidos.php';</script>";
 } else {
     echo "Erro ao processar pedido: " . $conexao->error;
 }

@@ -79,7 +79,7 @@ if (isset($_GET['remover'])) {
 <body>
     <header>
         <div class="logo">Mi Patisserie</div>
-        <a href="index.php" style="color: gold; text-decoration: none;">← VOLTAR AO CARDÁPIO</a>
+        <a href="../index.php" style="color: gold; text-decoration: none;">← VOLTAR AO CARDÁPIO</a>
     </header>
 
     <div class="tabela-carrinho">
@@ -132,7 +132,7 @@ if (isset($_GET['remover'])) {
             </h3>
             
             <?php if ($total_geral > 0): ?>
-                <a href="finalizar_pedido.php" class="btn-finalizar">PROSSEGUIR COM A COMPRA</a>
+                <a href="../php/finalizar_pedido.php" class="btn-finalizar">PROSSEGUIR COM A COMPRA</a>
             <?php endif; ?>
         </div>
     </div>

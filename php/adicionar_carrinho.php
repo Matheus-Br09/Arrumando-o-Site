@@ -20,5 +20,5 @@ if (isset($_GET['id'])) {
 }
 
 // Volta para o cardápio
-header("Location: index.php");
+header("Location: ../index.php");
 exit();

@@ -83,14 +83,13 @@ function buscar() {
 };
 
 document.getElementById('link').addEventListener('click', function (event) {
-    event.preventDefault();
+    event.preventDefault()
     chamarPHP();
 })
 
 function chamarPHP() {
-    fetch('../php/logout.php')
-    window.location.reload()
-
+    fetch('./php/logout.php')
+    location.reload()
 }
 
 function excluirProduto(id) {
@@ -122,6 +121,7 @@ function voltar() {
     index = (index - 1 + 3) % 3;
     carrossel.style.transform = "translateX(-" + (index * 315) + "px)";
 }
+// bagui de recolher o bagui
 
 const botaoTopo = document.getElementById("toggleMenu");
 const sidebar = document.querySelector(".header-lateral");
