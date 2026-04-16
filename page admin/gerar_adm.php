@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../php/config.php';
 
 $nome = "Matheus";
-$email = "admin@email.com";
+$email = "admin@gmail.com";
 $senha_limpa = "123456";
 $senha_hash = password_hash($senha_limpa, PASSWORD_DEFAULT);
 
@@ -11,7 +11,7 @@ $sql->bind_param("sss", $nome, $email, $senha_hash);
 
 if ($sql->execute()) {
     echo "Administrador criado com sucesso! <br>";
-    echo "Email: admin@email.com <br>";
+    echo "Email: admin@gmail.com <br>";
     echo "Senha: 123456";
 } else {
     echo "Erro ao criar: " . $conexao->error;
