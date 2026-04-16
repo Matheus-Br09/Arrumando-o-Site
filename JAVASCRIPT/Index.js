@@ -88,6 +88,8 @@ function buscar(event) {
         resultados.textContent = "Nenhum produto/alimento com esse nome foi encontrado!"
     }
 
+    let areaBusca = document.getElementById("areaBusca")
+
     document.addEventListener("click", function(event){
         const clicouDentro = areaBusca.contains(event.target);
 
@@ -103,6 +105,7 @@ document.getElementById('link').addEventListener('click', function (event) {
     event.preventDefault()
     chamarPHP();
 })
+
 //Função de logout
 function chamarPHP() {
     fetch('./php/logout.php')

@@ -34,7 +34,7 @@ $res_categorias = $conexao->query($sql_categorias);
             <input type="text" id="pesquisa" placeholder="Pesquisar...">
             <button onclick="buscar()">Buscar</button>
         </form>    
-        <div>
+        <div id="areaBusca">
             <h3 id="nome-res"></h3>
             <p id="resultados"></p>
         </div>
@@ -44,7 +44,7 @@ $res_categorias = $conexao->query($sql_categorias);
         
             
             <a href="./pages/meus_pedidos.php" style="color: white; text-decoration: none; margin-right: 15px">MEUS PEDIDOS</a>
-            <button id="link" s>SAIR</button>
+            <button id="link">SAIR</button>
         <?php else: ?>
             <a href="./pages/login.php" style="color: white; text-decoration: none;">LOGIN</a>
         <?php endif; ?>

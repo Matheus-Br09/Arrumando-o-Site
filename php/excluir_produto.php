@@ -9,7 +9,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // 2. OPCIONAL: Buscar o nome da imagem para apagar o arquivo da pasta img/
     $res = $conexao->query("SELECT imagem FROM produto WHERE c_produto = $id");
     if ($prod = $res->fetch_assoc()) {
-        $foto = "img/" . $prod['imagem'];
+        $foto = "./img/" . $prod['imagem'];
         if (file_exists($foto) && !empty($prod['imagem'])) {
             unlink($foto); // Isso apaga o arquivo físico da pasta
         }

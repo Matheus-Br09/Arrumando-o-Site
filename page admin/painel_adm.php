@@ -64,7 +64,7 @@ $resultado = $conexao->query($sql);
                     <td><?php echo $prod['estoque']; ?> un</td>
                     <td>
                         <a href="editar_produto.php?id=<?= $prod['c_produto'];?>" class="btn btn-warning btn-sm">Editar</a>
-                        <button onclick="excluirProduto(<?= $prod['c_produto'];?>)" class="btn btn-danger btn-sm">Excluir</button>
+                        <button onclick="excluirProduto(<?=$prod['c_produto'];?>)" class="btn btn-danger btn-sm">Excluir</button>
                     </td>
                 </tr>
                 <?php endwhile; ?>
