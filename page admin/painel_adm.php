@@ -31,7 +31,7 @@ $resultado = $conexao->query($sql);
     <nav class="navbar navbar-dark bg-dark mb-4">
         <div class="container">
             <span class="navbar-brand">Painel ADM - Mi Patisserie</span>
-            <a href="../php/logout.php" id="link" class="btn btn-outline-light btn-sm">Sair</a>
+            <a href="../php/logout.php" class="btn btn-outline-light btn-sm">Sair</a>
         </div>
     </nav>
 

@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once __DIR__ . '/php/config.php';
+include __DIR__ . '/php/get_carrinho.php';
+
 
 // 3. Busca as categorias
 $sql_categorias = "SELECT * FROM categorias";
@@ -18,7 +20,7 @@ $res_categorias = $conexao->query($sql_categorias);
 
 <header class="header-topo">
     <button id="toggleMenu" class="btn-menu">☰</button>
-    <a href="#inicio" id="imagem">
+    <a href="index.php" id="imagem">
         <img src="./Imagens-Referencias/logo-melhorada.png" class="logo">
     </a>
     <?php if (isset($_SESSION['usuario_id']) && $_SESSION['perfil'] === 'cliente'): ?>
@@ -28,17 +30,23 @@ $res_categorias = $conexao->query($sql_categorias);
                 Olá, <?php echo explode(' ', $_SESSION['usuario_nome'])[0]; ?>!
             </span>
     <div id="divPesquisa">
-        <input type="text" id="pesquisa" placeholder="Pesquisar...">
-        <button onclick="buscar()">Buscar</button>
+        <form onsubmit="buscar(); return false;">
+            <input type="text" id="pesquisa" placeholder="Pesquisar...">
+            <button onclick="buscar()">Buscar</button>
+        </form>    
+        <div>
+            <h3 id="nome-res"></h3>
+            <p id="resultados"></p>
+        </div>
     </div>
     
     <div class="user-area">
         
             
-            <a href="./pages/meus_pedidos.php" style="color: white; text-decoration: none; margin-right: 15px;">MEUS PEDIDOS</a>
-            <button id="link" style="color: #ff4d4d; text-decoration: none; font-weight: bold;">SAIR</button>
+            <a href="./pages/meus_pedidos.php" style="color: white; text-decoration: none; margin-right: 15px">MEUS PEDIDOS</a>
+            <button id="link" s>SAIR</button>
         <?php else: ?>
-            <a href="./pages/login.php" style="color: white; text-decoration: none; margin-right: 15px;">LOGIN</a>
+            <a href="./pages/login.php" style="color: white; text-decoration: none;">LOGIN</a>
         <?php endif; ?>
     </div>
     
@@ -78,10 +86,10 @@ $res_categorias = $conexao->query($sql_categorias);
         // SEGUNDO LOOP: Produtos por Categoria
         while($cat = $res_categorias->fetch_assoc()): ?>
             <section class="titulo-sessao" id="cat-<?php echo $cat['c_categoria']; ?>">
-                <h2 style="color: white; margin-top: 20px;"><?php echo strtoupper($cat['nome_categoria']); ?></h2>
+                <h2 id="nome_categoria"><?php echo strtoupper($cat['nome_categoria']); ?></h2>
             </section>
 
-            <section class="produtos-grid" style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <section class="produtos-grid">
                 <?php
                 $id_cat = $cat['c_categoria'];
                 $sql_produtos = "SELECT * FROM produto WHERE c_categoria = $id_cat";
@@ -89,19 +97,19 @@ $res_categorias = $conexao->query($sql_categorias);
 
                 if($res_produtos->num_rows > 0):
                     while($prod = $res_produtos->fetch_assoc()): ?>
-                        <div class="card" style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; width: 200px;">
-                            <div class="imagem" style="height: 150px; background: #eee;">
+                        <div class="card">
+                            <div class="imagem" style="height: 150px;">
                                 <img src="./img/<?php echo $prod['imagem']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
-                            <p style="color: white; margin-top: 10px;"><?php echo $prod['nome_produto']; ?></p>
+                            <p class="nome-produto" style="color: white; margin-top: 10px;"><?php echo $prod['nome_produto']; ?></p>
                             <p style="color: gold; font-weight: bold;">R$ <?php echo number_format($prod['preco'], 2, ',', '.'); ?></p>
                             
                             <?php if (isset($_SESSION['usuario_id'])): ?>
-                                <a href="./php/adicionar_carrinho.php?id=<?php echo $prod['c_produto']; ?>" 
+                                <button onclick="adicionarItem(<?= $prod['c_produto']; ?>)" 
                                 class="btn-add" 
-                                style="background: gold; padding: 5px 10px; text-decoration: none; color: black; border-radius: 5px; display: inline-block;">
+                                style="background: gold; box-shadow: 2px 2px black; padding: 5px 10px; color: black; border: 1px solid gold; border-radius: 5px; display: inline-block;">
                                     Adicionar
-                                </a>
+                                </button>
                             <?php endif; ?>
                         </div>
                     <?php endwhile;
@@ -114,20 +122,9 @@ $res_categorias = $conexao->query($sql_categorias);
 </section>
 
 <?php if (isset($_SESSION['usuario_id']) && $_SESSION['perfil'] === 'cliente'): ?>
-    <div class="carrinho-fixo" onclick="window.location='./pages/carrinho.php'" style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer;">
+    <div class="carrinho-fixo" id="valorCarrinho" onclick="window.location='./pages/carrinho.php'" style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer;">
         🛒
-        <?php
-        $total_carrinho = 0;
-        if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
-            foreach ($_SESSION['carrinho'] as $id => $qtd) {
-                $res_p = $conexao->query("SELECT preco FROM produto WHERE c_produto = ".intval($id));
-                if ($p = $res_p->fetch_assoc()) {
-                    $total_carrinho += $p['preco'] * $qtd;
-                }
-            }
-        }
-        echo "R$ " . number_format($total_carrinho, 2, ',', '.');
-        ?>
+        <?php echo "R$ " . number_format($total_carrinho, 2, ',', '.'); ?>
     </div>
 <?php endif; ?>
 

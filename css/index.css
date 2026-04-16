@@ -1,10 +1,12 @@
-body{
-margin-left:150px;
-font-family:"Times New Roman", serif;
-color:#dad5d5;
-background:#571209;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
 
-    background-image: url(/Imagens-Referencias/café-inferior1.0.png);
+body{
+    margin-left:150px;
+    font-family:"Times New Roman", serif;
+    color:#dad5d5;
+    background:#571209;
+
+    background-image: url(../Imagens-Referencias/café-inferior1.0.png);
     background-color: #571209;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,9 +23,20 @@ background:#571209;
 
 
 .conteudo-principal{
+    text-align: center;
     align-items: center;
-    margin-left: 50%;
-    margin-top: 10%;
+    margin: auto;
+    margin-top: 7%;
+}
+
+.conteudo-principal #boas-vindas{
+    font-family: "Noto Sans Display", sans-serif;
+    font-size: 60px;
+    font-weight: 300;
+
+    text-align: center;
+
+    padding: 50px;
 }
 
 .header-lateral{
@@ -61,10 +74,23 @@ background:#571209;
 
     display: flex;
     align-items: center;
-    justify-content: center; /* centraliza a pesquisa */
+    justify-content: center;
+    gap: 10px;
 
 
 }
+
+.user-area #link{
+    background-image:linear-gradient(to right, #ffd900b2, #9e8531, #ffd900b2) ;
+    border: 1px solid rgb(133, 113, 0);
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 75px;
+    color: #340c07; 
+    font-weight: bold; 
+    margin-right: 10px;
+}
+
 
 .perfil {
     width: 60px;
@@ -77,7 +103,6 @@ background:#571209;
 #divPesquisa{
     text-align: center;
     margin: auto;
-    margin-right: 330px;
 }
 
 #divPesquisa input{
@@ -132,8 +157,23 @@ background:#571209;
     transition: 0.2s;
 }
 
+#divPesquisa #resultados-pesquisa{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #410800;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.452);
+}
 #divPesquisa #resultados{
-    bottom: 20%;
+    display: flex;
+    justify-content: center;  /* centraliza horizontal */
+    align-items: center;      /* centraliza vertical (se tiver altura) */
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #410800;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.452);
 }
 
 .menu{
@@ -141,6 +181,11 @@ background:#571209;
     flex-direction:column;
     gap:30px;
     margin-top:80%;
+}
+
+.conteudo-principal #nome_categoria{
+    font-family: "Noto Sans Display", sans-serif;
+    font-weight: 150px;
 }
 
 .logo{
@@ -171,17 +216,27 @@ nav a{
 
 .cards{
     display:flex;
-    justify-content:center;
+    justify-content:center center;
     gap:20px;
     flex-wrap:wrap;
 }
 
 .card{
-    background:#7c6037;
+    background:#7c603781;
     padding:20px;
     border-radius:10px;
     width:200px;
+    text-align: center;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.274);
+}
 
+.card img{
+    border-radius: 10px;
+    size: 100px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.459);
 }
 
 .card button{
@@ -219,6 +274,13 @@ button{
     background:rgba(255, 255, 255, 0.582);
     color: rgb(0, 0, 0);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.produtos-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    justify-content: center;
+    gap: 20px;
 }
 
 

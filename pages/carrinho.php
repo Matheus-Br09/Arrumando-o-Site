@@ -125,6 +125,7 @@ if (isset($_GET['remover'])) {
                     echo "<tr><td colspan='5' style='text-align:center; padding:30px;'>Seu carrinho está vazio.</td></tr>";
                 } ?>
             </tbody>
+            <p style="text-align: center;">O pagamento somente é feito no estabelecimento presencialmente no estabelecimento mais próximo.</p>
         </table>
         
         <div style="overflow: hidden;"> <h3 style="text-align: right; margin-top: 20px; color: gold;">
@@ -132,7 +133,7 @@ if (isset($_GET['remover'])) {
             </h3>
             
             <?php if ($total_geral > 0): ?>
-                <a href="../php/finalizar_pedido.php" class="btn-finalizar">PROSSEGUIR COM A COMPRA</a>
+                <a href="../php/finalizar_pedido.php" class="btn-finalizar">CONFIRMAR PEDIDO</a>
             <?php endif; ?>
         </div>
     </div>

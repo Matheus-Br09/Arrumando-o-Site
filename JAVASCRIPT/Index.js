@@ -54,9 +54,10 @@ function adicionarItem(nome, preco) {
 
 // Buscar
 
-function buscar() {
+function buscar(event) {
     let texto = document.getElementById("pesquisa").value.toLowerCase();
     let cards = document.querySelectorAll(".card");
+    let nome_res = document.getElementById("nome-res")
     let resultados = document.getElementById("resultados");
 
     resultados.innerHTML = "";
@@ -68,29 +69,47 @@ function buscar() {
 
     let encontrado
 
-    const titulos = document.querySelectorAll(".secao h3")
-
-    titulos.forEach(h3 => {
-        if (h3.textContent.toLowerCase().startsWith(texto)) {
-            resultados.appendChild(h3.closest(".card").cloneNode(true))
+    const titulos = document.querySelectorAll(".nome-produto")
+    
+    titulos.forEach(p => {
+        if (p.innerHTML.toLowerCase().startsWith(texto)) {
+            nome_res.textContent = "Resultados para \"" + texto + "\"";
+            resultados.appendChild(p.closest(".card").cloneNode(true))
+            resultados.style.display = "flex"
+            resultados.style.padding = '40px'
+            resultados.style.margin = '10px'
+            resultados.style.bottom = '10px'
+            resultados.style.borderRadius = '10px'
             encontrado = true;
         }
     })
 
     if (!encontrado) {
-        resultados.textContent = "Nenhum produto/alimentado com esse nome foi encontrado!"
+        resultados.textContent = "Nenhum produto/alimento com esse nome foi encontrado!"
     }
+
+    document.addEventListener("click", function(event){
+        const clicouDentro = areaBusca.contains(event.target);
+
+        if (!clicouDentro){
+            resultados.style.display = "none";
+            resultados.innerHTML = ""
+            nome_res.innerHTML = ""
+        }
+    })
 };
 
 document.getElementById('link').addEventListener('click', function (event) {
     event.preventDefault()
     chamarPHP();
 })
-
+//Função de logout
 function chamarPHP() {
     fetch('./php/logout.php')
     location.reload()
 }
+
+// Exclusão de produto (pagina admin)
 
 function excluirProduto(id) {
     if (!confirm("Tem certeza? ")) return;
@@ -105,6 +124,31 @@ function excluirProduto(id) {
             console.error("Erro: ", error)
             alert('Erro ao excluir produto!!')
         })
+}
+
+//Adicionar item no carrinho
+
+function adicionarItem(id){
+    fetch('./php/adicionar_carrinho.php?id=' + id)
+    .then(response => response.text())
+    .then(data => {
+        console.log("Produto adicionado!!")
+        location.reload()
+    })
+    .catch(error => {
+        console.log('Erro: ', error)
+    })
+    
+}
+
+// atualizar carrinho
+
+function atualizarCarrinho(){
+    fetch('./php/get_carrinho.php')
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("valorCarrinho").textContent = data.total;
+    })
 }
 
 
