@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/php/config.php';
 include __DIR__ . '/php/get_carrinho.php';
-
+app = Flask(__index__);
 
 // 3. Busca as categorias
 $sql_categorias = "SELECT * FROM categorias";
