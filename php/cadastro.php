@@ -49,7 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Executar o comando SQL
 
         if ($sql->execute()) {
-            echo "Usuário cadastrado com sucesso!";
+            echo "<script>alert('Usuário cadastrado com sucesso');</script>";
+            // sleep(2);
+            header('Location: ../pages/login.php');
+            exit();
         } else {
             echo "Erro ao cadastrar: " . $sql->error;
         }

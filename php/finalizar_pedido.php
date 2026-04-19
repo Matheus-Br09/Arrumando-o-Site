@@ -26,6 +26,7 @@ foreach ($carrinho as $id => $qtd) {
 
 // 3. Insere o Pedido Principal
 // Status 1 = Pendente (ou o ID que você definiu na tabela status_pedido)
+date_default_timezone_set('America/Sao_Paulo');
 $data_atual = date('Y-m-d H:i:s');
 $sql_pedido = $conexao->prepare("INSERT INTO pedido (c_cliente, valor_total, data_pedido, c_status) VALUES (?, ?, ?, 1)");
 $sql_pedido->bind_param("ids", $id_cliente, $total_pedido, $data_atual);
