@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Ex: bolo_rolo_123.jpg
         $novo_nome_imagem = "produto_" . $id . "_" . time() . "." . $extensao;
         
-        $destino = "img/" . $novo_nome_imagem;
+        $destino = "../img/" . $novo_nome_imagem;
         
         // Tenta mover o arquivo físico para a pasta img/
         if (move_uploaded_file($arquivo_tmp, $destino)) {
@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $nome_imagem_atual = $novo_nome_imagem;
             
             // (OPCIONAL) Deletar a imagem antiga para não encher o servidor
-            if(!empty($prod['imagem']) && file_exists("img/".$prod['imagem'])){
-                unlink("img/".$prod['imagem']);
+            if(!empty($prod['imagem']) && file_exists("../img/".$prod['imagem'])){
+                unlink("../img/".$prod['imagem']);
             }
         } else {
             echo "<script>alert('Erro ao mover o arquivo de imagem.');</script>";
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Editar Produto - Mi Patisserie</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href=".../css/index.css">
     <style>
         label { font-weight: bold; color: #333; margin-top: 10px; display: block; }
         input[type="text"], input[type="number"], input[type="file"] {
@@ -104,8 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <label>Imagem do Produto (clique para trocar):</label>
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-             <?php if(!empty($prod['imagem']) && file_exists("img/".$prod['imagem'])): ?>
-                <img src="img/<?php echo $prod['imagem']; ?>" style="width: 70px; height: 70px; object-fit: cover; border-radius: 5px;">
+             <?php if(!empty($prod['imagem']) && file_exists("../img/".$prod['imagem'])): ?>
+                <img src="../img/<?php echo $prod['imagem']; ?>" style="width: 70px; height: 70px; object-fit: cover; border-radius: 5px;">
              <?php else: ?>
                 <div style="width: 70px; height: 70px; background: #eee; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #777;">Sem Foto</div>
              <?php endif; ?>
