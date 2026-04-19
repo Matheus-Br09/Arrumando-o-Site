@@ -29,19 +29,32 @@ $resultado = $conexao->query($sql);
     <style>
         /* Ajustes específicos para a página de pedidos */
         body {
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* Mantém o cabeçalho em cima e o conteúdo embaixo */
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center;     /* Centraliza horizontalmente */
+            min-height: 100vh;       /* Garante que o corpo ocupe toda a altura da tela */
+            background-color: #2b0a0a;
             background-image: linear-gradient(to bottom, #4e1a1a, #2b0d0d); /* Cor de fundo do projeto */
             min-height: 100vh;
         }
+        
         .header-pedidos {
+            border-radius: 0px 0px 10px 10px;
+            width: 90%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
             background: rgba(0,0,0,0.3);
+            box-shadow: 4px 4px rgba(0,0,0,0.5);
         }
+
         .container-pedidos {
+            width: 800px;
             max-width: 1000px;
-            margin: 40px auto;
+            margin: auto;
             background: rgba(255, 255, 255, 0.05);
             padding: 30px;
             border-radius: 15px;
@@ -83,7 +96,7 @@ $resultado = $conexao->query($sql);
         <a href="../index.php"><div style="color: gold; font-size: 24px; font-weight: bold;">
             Mi Patisserie</div></a>
         <nav>
-            <a href="../index.php" style="color: white; text-decoration: none; margin-right: 20px; font-weight: bold;">CARDÁPIO</a>
+            <a href="../index.php" style="color: white; text-decoration: none; font-weight: bold;">CARDÁPIO</a>
         </nav>
     </header>
 

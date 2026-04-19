@@ -20,8 +20,6 @@ body{
     font-size: x-large;
 }
 
-
-
 .conteudo-principal{
     text-align: center;
     align-items: center;
@@ -37,6 +35,16 @@ body{
     text-align: center;
 
     padding: 50px;
+}
+
+@media (width < 590px){
+    .conteudo-principal{
+      text-align: left; 
+    }
+    .conteudo-principal #boas-vindas{
+        font-size: 40px;
+        font-weight: 150px;
+    }     
 }
 
 .header-lateral{
@@ -56,7 +64,6 @@ body{
 .header-lateral #instagram {
    
     width: 60px;
-    height: auto;
     position: relative;
     left: 1px;       
     bottom: 50px;  
@@ -150,12 +157,28 @@ body{
     
 }
 
+
+
 #divPesquisa button:hover{
     background-color: rgba(255, 255, 255, 0.562);
     color: #340c07;
 
     transition: 0.2s;
 }
+
+@media (max-width: 908px){
+    #divPesquisa input{
+        width: 200px;
+    }
+    
+}
+
+@media (max-width: 834){
+    #divPesquisa button{
+        border-radius: 10px;
+    }
+}
+
 
 #divPesquisa #resultados-pesquisa{
     display: flex;
@@ -187,6 +210,8 @@ body{
     font-family: "Noto Sans Display", sans-serif;
     font-weight: 150px;
 }
+
+
 
 .logo{
     width:90px;
@@ -239,6 +264,8 @@ nav a{
     box-shadow: 4px 4px rgba(0, 0, 0, 0.459);
 }
 
+
+
 .card button{
     margin-top:10px;
     background-color: #dad5d575;
@@ -281,6 +308,22 @@ button{
     grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
     justify-content: center;
     gap: 20px;
+}
+
+@media (max-width: 590px){
+    .card{
+        justify-content: center center;
+        width:100px;       
+    }
+
+    .card img{
+        
+        width: 100%;
+    }
+
+    .produtos-grid{
+        grid-template-columns: repeat(auto-fit, minmax(90px, 140px));
+    }
 }
 
 
@@ -352,11 +395,17 @@ section .carrossel{
     transition: 0.3s;
 }
 
+@media (max-width: 590px){
+    .header-lateral{
+        width: 100px;
+    }
+}
 
 .header-lateral.recolhido{
     width: 60px;
     padding-top: 10%;
 }
+
 
 
 .header-lateral.recolhido nav a{
@@ -385,3 +434,4 @@ footer{
     padding: 0px;
 
 }
+

@@ -109,6 +109,7 @@ document.getElementById('link').addEventListener('click', function (event) {
 //Função de logout
 function chamarPHP() {
     fetch('./php/logout.php')
+    if (!confirm("Tem certeza que quer sair do perfil? ")) return;
     location.reload()
 }
 

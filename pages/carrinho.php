@@ -36,13 +36,18 @@ if (isset($_GET['remover'])) {
     <link rel="stylesheet" href="../css/index.css">
     <style>
         body {
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* Mantém o cabeçalho em cima e o conteúdo embaixo */
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center;     /* Centraliza horizontalmente */
             background-image: linear-gradient(to bottom, #4e1a1a, #2b0d0d);
-            min-height: 100vh;
             color: white;
             font-family: Arial, sans-serif;
         }
         .tabela-carrinho {
-            max-width: 1000px;
+            width: 1100px;
+            max-width: 1300px;
             margin: 40px auto;
             background: rgba(255, 255, 255, 0.05);
             padding: 30px;
@@ -50,11 +55,14 @@ if (isset($_GET['remover'])) {
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         header {
+            border-radius: 0px 0px 10px 10px;
+            width: 90%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
             background: rgba(0,0,0,0.3);
+            box-shadow: 4px 4px rgba(0,0,0,0.4);
         }
         .logo { font-size: 24px; color: gold; font-weight: bold; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
@@ -125,7 +133,7 @@ if (isset($_GET['remover'])) {
                     echo "<tr><td colspan='5' style='text-align:center; padding:30px;'>Seu carrinho está vazio.</td></tr>";
                 } ?>
             </tbody>
-            <p style="text-align: center;">O pagamento somente é feito no estabelecimento presencialmente no estabelecimento mais próximo.</p>
+            <p style="text-align: center; background-color: red; padding: 10px; border-radius: 10px">O pagamento somente é feito presencialmente no estabelecimento mais próximo.</p>
         </table>
         
         <div style="overflow: hidden;"> <h3 style="text-align: right; margin-top: 20px; color: gold;">

@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include __DIR__ . '/../php/config.php';
 
     $total_carrinho = 0;
@@ -11,6 +10,5 @@
                 }
             }
         }
-        
-    echo "R$ " . number_format($total_carrinho, 2, ',', '.');
+
 ?>
