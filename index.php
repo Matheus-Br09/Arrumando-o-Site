@@ -97,7 +97,7 @@ $res_categorias = $conexao->query($sql_categorias);
                 if($res_produtos->num_rows > 0):
                     while($prod = $res_produtos->fetch_assoc()): ?>
                         <div class="card">
-                            <div class="imagem" style="height: 150px;">
+                            <div class="imagem" style="height: 150px; background-color: white; border-radius: 12px; overflow: hidden;">
                                 <img src="./img/<?php echo $prod['imagem']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <p class="nome-produto" style="color: white; margin-top: 10px;"><?php echo $prod['nome_produto']; ?></p>
